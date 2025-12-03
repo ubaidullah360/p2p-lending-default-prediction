@@ -43,7 +43,7 @@ We will implement and compare 6 different architectures:
 - **Week 13-14**: Final testing and documentation
 
 ## 👥 Team
-- Ubaidullah (Team Lead)
+-  Team Lead
 - Team Member 2
 - Team Member 3
 
