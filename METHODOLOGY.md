@@ -328,6 +328,36 @@ To characterize the final preprocessed dataset, we calculated descriptive statis
 - **Loan Term:** 58.3% of loans are 36-month term (mean 41.7 months), with remainder 60-month term
 - **Income Verification:** 63.4% of borrowers have verified income, indicating platform's risk management practices
 - **Feature Scaling Implications:** Wide numeric ranges (e.g., income $18K-$214K, revolving balance $0-$1.7M) necessitate standardization for neural network training
+#### 4.1. 6 Categorical Feature Distributions
+
+To visualize the composition of categorical features after one-hot encoding, we present the distribution of the three primary categorical variables in our final sample.
+
+**Figure 1: Home Ownership Distribution**
+
+<img width="2970" height="1472" alt="image" src="https://github.com/user-attachments/assets/9a27770e-10fc-4c4f-9e16-564c70256eec" />
+
+
+*Figure 1: Distribution of Home Ownership Categories in Final Sample (N=44,902).  The majority of borrowers (48%) have mortgage obligations, followed by renters (42%). Home ownership status serves as proxy for financial stability and collateral availability.*
+
+**Figure 2: Loan Purpose Distribution**
+
+<img width="3570" height="1471" alt="image" src="https://github.com/user-attachments/assets/6927ec04-9c46-448b-b509-738b9dd86f24" />
+
+
+*Figure 2: Distribution of Loan Purpose Categories in Final Sample (N=44,902). Debt consolidation dominates loan purposes (58%), followed by credit card payoff (23%). This distribution reflects typical borrower motivations on P2P lending platforms.*
+
+**Figure 3: Rating Sub-Grade Distribution**
+
+<img width="4170" height="1471" alt="image" src="https://github.com/user-attachments/assets/58f1e070-d132-425c-91e7-1312b876f473" />
+
+
+*Figure 3: Distribution of Lending Club Rating Sub-Grades in Final Sample (N=44,902). Distribution peaks at B-grade borrowers, with decreasing frequencies toward higher-risk (F-G) and lower-risk (A) categories. Sub-grade assignments reflect platform's internal credit assessment combining FICO scores and other risk factors.*
+
+**Key Insights:**
+- **Home Ownership:** Mortgage holders (48%) and renters (42%) comprise 90% of sample, indicating financially active borrowers
+- **Loan Purpose:** Debt consolidation (58%) and credit card refinancing (23%) account for 81% of loans, suggesting borrowers seek lower-interest alternatives
+- **Credit Risk Distribution:** B-grade concentration indicates moderate-risk borrower pool; low representation of A-grades suggests prime borrowers may access traditional banking
+- **One-Hot Encoding Impact:** These three categorical features expand to 54 binary columns after encoding (6 home ownership + 14 purposes + 35 sub-grades = 55, minus dropped reference categories = 54)
 
 ### 4.2 Text Preprocessing Pipeline
 
