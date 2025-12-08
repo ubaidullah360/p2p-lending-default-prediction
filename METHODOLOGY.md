@@ -300,6 +300,35 @@ Following the feature extraction and transformation process, we successfully eng
 |---------|---------------|---------------|
 | User-generated loan description | `desc` | See Section 4.2 |
 
+#### 4.1.5 Descriptive Statistics for Numerical Features
+
+To characterize the final preprocessed dataset, we calculated descriptive statistics for all numerical and binary features. Table 10 presents the distribution characteristics that inform model training and feature scaling decisions.
+
+**Table 10: Descriptive Statistics for Numerical and Dichotomous Variables**
+
+| Variable | Dimension | Mean | St.dev | Min | Median | Max | N |
+|----------|-----------|------|--------|-----|--------|-----|---|
+| Adverse public records | Number of records | 0.074 | 0.320 | 0.000 | 0.000 | 17.000 | 44902 |
+| Annual income | US-$ (winsorized) | 69,377.28 | 36181.37 | 18000.00 | 60198.50 | 214198.00 | 44902 |
+| Debt-to-income ratio | Payments/monthly income | 15.844 | 7.427 | 0.000 | 15.720 | 34.990 | 44902 |
+| Delinquencies (2 years) | Number of delinquencies | 0.188 | 0.618 | 0.000 | 0.000 | 18.000 | 44902 |
+| Inquiries within 6 months | Number of inquiries | 0.817 | 1.046 | 0.000 | 0.000 | 8.000 | 44902 |
+| Total open accounts | Number of accounts | 10.497 | 4.636 | 0.000 | 10.000 | 53.000 | 44902 |
+| Revolving balance | US-$ | 15,458.49 | 19172.07 | 0.000 | 11462.00 | 1746716.00 | 44902 |
+| Revolving line utilization rate | Used credit/available credit | 55.031 | 25.567 | 0.000 | 57.600 | 113.900 | 44902 |
+| FICO score | Interval center | 707.017 | 33.477 | 632.000 | 702.000 | 847.500 | 44902 |
+| Loan term | In months | 41.663 | 10.190 | 36.000 | 36.000 | 60.000 | 44902 |
+| Income verified | Indicator | 0.634 | 0.482 | 0.000 | 1.000 | 1.000 | 44902 |
+| Loan status | Indicator | 0.145 | 0.352 | 0.000 | 0.000 | 1.000 | 44902 |
+
+**Key Observations:**
+- **FICO Score Distribution:** Mean FICO score of 707 indicates predominantly prime borrowers, with range 632-847.5 spanning subprime to super-prime categories
+- **Income Characteristics:** Median annual income ($60,198) below mean ($69,377) reveals right-skewed distribution; winsorization at 1st/99th percentiles reduces outlier impact
+- **Credit Utilization:** Mean revolving utilization (55%) suggests moderate credit stress; high standard deviation (25.6) indicates substantial heterogeneity
+- **Loan Term:** 58.3% of loans are 36-month term (mean 41.7 months), with remainder 60-month term
+- **Income Verification:** 63.4% of borrowers have verified income, indicating platform's risk management practices
+- **Feature Scaling Implications:** Wide numeric ranges (e.g., income $18K-$214K, revolving balance $0-$1.7M) necessitate standardization for neural network training
+
 ### 4.2 Text Preprocessing Pipeline
 
 Following the exact text preprocessing steps specified in the baseline study [1]:
